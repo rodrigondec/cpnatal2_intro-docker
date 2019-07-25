@@ -1,0 +1,19 @@
+version: '3'
+
+
+services:
+    server:
+        build:
+            context: server
+            dockerfile: Dockerfile
+        ports:
+            - "8000:8000"
+
+    requester:
+        build:
+            context: requester
+            dockerfile: Dockerfile
+        depends_on:
+            - server
+        environment:
+            - HOST_URL=server
