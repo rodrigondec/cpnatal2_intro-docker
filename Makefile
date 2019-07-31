@@ -13,5 +13,11 @@ logs:
 down:
 	docker-compose down
 
-clear.docker:
-	docker ps | awk '{print $$1}' | grep -v CONTAINER | xargs docker stop
+containers.stop:
+	docker stop $(docker ps -aq)
+
+containers.remove:
+	docker rm $(docker ps -aq)
+
+images.remove:
+	docker rmi $(docker images -q)
