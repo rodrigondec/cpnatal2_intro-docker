@@ -5,7 +5,10 @@ build:
 	docker build . -t cpnatal2_intro-docker_requester
 
 run:
-	docker run -e "HOST_URL=server" --link server:rnc_cpnatal3-docker_server rnc_cpnatal3-docker_requester
+	docker run -e "HOST_URL=server" cpnatal2_intro-docker_requester
+
+run.link:
+	docker run -e "HOST_URL=server" --link server cpnatal2_intro-docker_requester
 
 containers.stop:
 	docker stop $(docker ps -aq)
