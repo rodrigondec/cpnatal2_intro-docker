@@ -1,3 +1,9 @@
+################################################################################
+# Docker service commands
+################################################################################
+build:
+	docker build . -t cpnatal2_intro-docker_requester
+
 run:
 	docker run -e "HOST_URL=server" --link server:rnc_cpnatal3-docker_server rnc_cpnatal3-docker_requester
 
