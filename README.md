@@ -1,6 +1,6 @@
-> Todos os repositórios do #DevOpsRN encontram-se no link https://github.com/jerimumhs/cpnatal2
+> Todos os repositórios do #DevOpsRN encontram-se no github https://github.com/jerimumhs/cpnatal2
 
-# Workshop Intrudução a containers com Docker #CPNatal2
+# Workshop Intrudução à containers com Docker #CPNatal2
 Repositório para a parte prática do workshop. 
 Nessa parte, utilizaremos diversos comandos docker para rodar alguns containers.
 
@@ -61,13 +61,13 @@ $ docker rmi nginx
 Entre na pasta `server` para rodar a aplicação encontrada lá.
 > ao contrário do nginx (no qual baixamos a imagem pura e rodamos ela), iremos construir a imagem do nosso server, por isso temos um `Dockerfile` na pasta
 
-Para construir a imagem do server utilizando o `build`
+Para construir a imagem do server utilizamos o `build`
 ```shell script
 $ docker build . -t cpnatal2_intro-docker_server
 ```
 > No comando estamos construindo a imagem na pasta atual (logo o `.`)
 
-> Estamos nomeando nossa imagem com o argumento `-t cpnatal2_intro-docker_server` 
+> Estamos 'tageando' nossa imagem com o argumento `-t cpnatal2_intro-docker_server` 
 
 Criamos o container com o comando `create`
 ```shell script
@@ -83,13 +83,13 @@ $ docker start server
 Entre na pasta `requester` para rodar a aplicação encontrada lá.
 > da mesma forma do server, construiremos a imagem do requester. Por isso temos um `Dockerfile` na pasta
 
-Para construir a imagem do server utilizando o `build`
+Para construir a imagem do server utilizamos o `build`
 ```shell script
 $ docker build . -t cpnatal2_intro-docker_requester
 ```
 > No comando estamos construindo a imagem na pasta atual (logo o `.`)
 
-> Estamos nomeando nossa imagem com o argumento `-t cpnatal2_intro-docker_server` 
+> Estamos 'tageando' nossa imagem com o argumento `-t cpnatal2_intro-docker_server` 
 
 Criamos o container com o comando `create`
 ```shell script
@@ -97,7 +97,7 @@ $ docker create --name requester -e "HOST_URL=server" --link server cpnatal2_int
 ```
 > Estamos utilizando o arqumento `-e "HOST_URL=server"` para passar para nosso container a variável de ambiente `HOST_URL` com o valor `server`
 
-> Como cada container é isolado, precisamos utilizar o argumento `-link server` para que nosso container requester possa ver nosso server
+> Como cada container é isolado, precisamos utilizar o argumento `-link server` para que nosso container requester possa acessar nosso server
 
 Rodamos nosso container com o comando `start`
 ```shell script
